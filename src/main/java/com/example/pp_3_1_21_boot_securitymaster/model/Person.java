@@ -1,4 +1,4 @@
-package com.example.pp_3_1_21_boot_securitymaster.Model;
+package com.example.pp_3_1_21_boot_securitymaster.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

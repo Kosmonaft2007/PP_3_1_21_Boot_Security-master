@@ -1,8 +1,8 @@
-package com.example.pp_3_1_21_boot_securitymaster.Servis.Impl;
+package com.example.pp_3_1_21_boot_securitymaster.servis.impl;
 
-import com.example.pp_3_1_21_boot_securitymaster.Model.Person;
-import com.example.pp_3_1_21_boot_securitymaster.Repository.PersonRepositori;
-import com.example.pp_3_1_21_boot_securitymaster.Servis.PersonServis;
+import com.example.pp_3_1_21_boot_securitymaster.model.Person;
+import com.example.pp_3_1_21_boot_securitymaster.repository.PersonRepository;
+import com.example.pp_3_1_21_boot_securitymaster.servis.PersonServis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,10 +14,10 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class PersonServisImpl implements PersonServis {
 
-    private final PersonRepositori personRepositori;
+    private final PersonRepository personRepositori;
 
     @Autowired
-    public PersonServisImpl(PersonRepositori personRepositori) {
+    public PersonServisImpl(PersonRepository personRepositori) {
         this.personRepositori = personRepositori;
     }
 
@@ -27,10 +27,7 @@ public class PersonServisImpl implements PersonServis {
         Optional<Person> per =personRepositori.findById(id);
 //        return per.orElse(new Person());
         return per.orElse(null);
-
-
 //        return personRepositori.findById(id).orElse(null);
-
 //        return personRepositori.findById(id).orElse(new Person());
     }
 

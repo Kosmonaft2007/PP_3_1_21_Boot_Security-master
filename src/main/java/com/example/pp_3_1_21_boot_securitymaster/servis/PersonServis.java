@@ -1,6 +1,6 @@
-package com.example.pp_3_1_21_boot_securitymaster.Servis;
+package com.example.pp_3_1_21_boot_securitymaster.servis;
 
-import com.example.pp_3_1_21_boot_securitymaster.Model.Person;
+import com.example.pp_3_1_21_boot_securitymaster.model.Person;
 
 import java.util.List;
 

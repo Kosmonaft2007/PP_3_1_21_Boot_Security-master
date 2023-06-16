@@ -1,8 +1,7 @@
-package com.example.pp_3_1_21_boot_securitymaster.Controller;
+package com.example.pp_3_1_21_boot_securitymaster.controller;
 
-import com.example.pp_3_1_21_boot_securitymaster.Model.Person;
-import com.example.pp_3_1_21_boot_securitymaster.Servis.PersonServis;
-import org.springframework.http.ResponseEntity;
+import com.example.pp_3_1_21_boot_securitymaster.model.Person;
+import com.example.pp_3_1_21_boot_securitymaster.servis.PersonServis;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
