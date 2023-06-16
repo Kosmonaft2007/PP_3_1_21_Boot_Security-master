@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+<h1>NEW -> USER </h1>
+действия должны быть выполнены по ссылке "@{/new-create}" / объект я передаю
+<form action="#" th:action="@{/new-create}" th:object="${peoples}" method="POST">
+
+<!--    <input type="hidden" name="_method" value="post"/>-->
+
+    <label for="firstName">First name</label>
+    <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+
+    <br/><br/>
+
+    <label for="lastName">Last name</label>
+    <input type="text" th:field="*{lastName}" id="lastName" th:value="*{getLastName()}" placeholder="Last Name">
+    <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"> Error</div>
+
+    <input type="submit" value="Create User">
+</form>
+</body>
+</html>
