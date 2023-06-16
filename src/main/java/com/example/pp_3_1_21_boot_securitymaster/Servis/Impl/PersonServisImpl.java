@@ -35,6 +35,7 @@ public class PersonServisImpl implements PersonServis {
     }
 
     @Override
+    @Transactional (readOnly = true)
     public List<Person> findAll() {
         return personRepositori.findAll();
     }

@@ -2,13 +2,14 @@ package com.example.pp_3_1_21_boot_securitymaster.Controller;
 
 import com.example.pp_3_1_21_boot_securitymaster.Model.Person;
 import com.example.pp_3_1_21_boot_securitymaster.Servis.PersonServis;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@Controller // почему НЕ @Controller?????????
+@Controller // почему НЕ @RESTController?????????
 
 public class PersonController {
     public final PersonServis personServis;
@@ -63,6 +64,7 @@ public class PersonController {
         model.addAttribute("peoples", personServis.findById(id));
         return "user-update";
     }
+
 //    @PatchMapping("/update/{id}")
 //    public String updateUser(Person person) {
 //        personServis.saveUser(person);
@@ -77,11 +79,9 @@ public class PersonController {
         return "redirect:/";
     }
 
-
-
     //УДАЛИТЬ по id _______________________________________________________________________________
 
-    @DeleteMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         personServis.deleteUser(id);
         return "redirect:/";
