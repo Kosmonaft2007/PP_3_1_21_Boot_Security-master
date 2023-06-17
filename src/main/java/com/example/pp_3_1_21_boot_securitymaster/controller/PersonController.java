@@ -34,27 +34,14 @@ public class PersonController {
         return "user-create";
     }
 
-    //    @PostMapping("/user-create")
-//    public String create(Person person) {
-//        personServis.saveUser(person);
-//        return "redirect:/";
-//    }
     @PostMapping("/new-create")
     public String create(@ModelAttribute("person") @Validated Person person, BindingResult result) {
         if (result.hasErrors())
-            return "redirect:/new-create";
+            return "redirect:/";
 
         personServis.saveUser(person);
         return "redirect:/";
     }
-
-    //прочитать по id _______________________________________________________________________________
-//    @GetMapping("/{id}")
-//    public String read(@PathVariable("id") int id, Model model) {
-//        model.addAttribute("users", personServis.readUser(id));
-//        return "show";
-//    }
-
 
     //ОБНОВИТЬ по id _______________________________________________________________________________
 
@@ -64,11 +51,6 @@ public class PersonController {
         return "user-update";
     }
 
-//    @PatchMapping("/update/{id}")
-//    public String updateUser(Person person) {
-//        personServis.saveUser(person);
-//        return "redirect:/";
-//    }
         @PatchMapping("/update/{id}")
     public String update(@ModelAttribute("peoples") @Validated Person person,BindingResult bindingResult, @PathVariable("id") Long id) {
         if (bindingResult.hasErrors())

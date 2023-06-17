@@ -1,6 +1,9 @@
 package com.example.pp_3_1_21_boot_securitymaster.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 //import javax.validation.constraints.*;
@@ -16,9 +19,9 @@ public class Person {
     private Long id;
 
 
-//    @Pattern(regexp = "^[a-zA-Z-А-аЯ-я]+$", message = " английские буквы")
-//    @NotEmpty(message = "Name should not be empty")
-//    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
+    @Pattern(regexp = "^[a-zA-Z-А-аЯ-я]+$", message = " английские буквы")
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     @Column(name = "first_name")
     private String firstName;
 
