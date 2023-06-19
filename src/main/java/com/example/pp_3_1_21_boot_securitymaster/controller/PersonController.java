@@ -2,6 +2,7 @@ package com.example.pp_3_1_21_boot_securitymaster.controller;
 
 import com.example.pp_3_1_21_boot_securitymaster.model.Person;
 import com.example.pp_3_1_21_boot_securitymaster.servis.PersonServis;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,8 +22,6 @@ public class PersonController {
     //показать всех _______________________________________________________________________________
     @GetMapping("/")
     public String showAllUsers(Model model) {
-//        List<Person> persons = personServis.findAll();
-//        model.addAttribute("peoples", persons);
         model.addAttribute("peoples", personServis.findAll());
         return "allUsers";
     }
@@ -34,10 +33,10 @@ public class PersonController {
         return "user-create";
     }
 
-    @PostMapping("/new-create")
-    public String create(@ModelAttribute("person") @Validated Person person, BindingResult result) {
+    @PostMapping("/new_Create")
+    public String create(@ModelAttribute("person") @Valid Person person, BindingResult result) {
         if (result.hasErrors())
-            return "redirect:/";
+            return "allUsers";
 
         personServis.saveUser(person);
         return "redirect:/";
@@ -52,9 +51,10 @@ public class PersonController {
     }
 
         @PatchMapping("/update/{id}")
-    public String update(@ModelAttribute("peoples") @Validated Person person,BindingResult bindingResult, @PathVariable("id") Long id) {
+    public String update(@ModelAttribute("peoples") @Valid Person person,BindingResult bindingResult, @PathVariable("id") Long id) {
         if (bindingResult.hasErrors())
             return "/user-update";
+
         person.setId(id);
         personServis.update(person, id);
         return "redirect:/";

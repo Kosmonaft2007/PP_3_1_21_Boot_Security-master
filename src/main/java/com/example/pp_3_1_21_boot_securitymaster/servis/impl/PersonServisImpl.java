@@ -23,12 +23,13 @@ public class PersonServisImpl implements PersonServis {
 
 
     @Override
+    @Transactional
     public Person findById(Long id) {
         Optional<Person> per =personRepositori.findById(id);
-//        return per.orElse(new Person());
-        return per.orElse(null);
+//        return per.orElse(id);
+//        return per.orElse(null);
 //        return personRepositori.findById(id).orElse(null);
-//        return personRepositori.findById(id).orElse(new Person());
+        return personRepositori.findById(id).orElse(new Person());
     }
 
     @Override
