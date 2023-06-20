@@ -6,7 +6,7 @@
     <title>People</title>
 </head>
 <body>
-<h1>HELLO  USER  </h1>
+<h1>HELLO USER </h1>
 <div th:switch="${peoples}">
     <h2 th:case="null">No users found!</h2> <!-- // аналог if, если users -Ю null то выводим  No users found!-->
     <div th:case="*">
@@ -30,7 +30,7 @@
             </tbody>
         </table>
     </div>
-<!--    <p><a href="/user-create">Create user</a></p>-->
+    <!--    <p><a href="/user-create">Create user</a></p>-->
     <p><a href="/new">Create user</a></p>
 </div>
 </body>
